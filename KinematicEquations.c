@@ -1,5 +1,5 @@
 //***********************************************************
-//* KinematicEquations.c Created By Kian Gorgichuk			*
+//* KinematicEquations.c Created By Kian Gorgichuk          *
 //* Copyright (c) 2015 Kian Gorgichuk. All rights reserved. *
 //***********************************************************
 
