@@ -1,0 +1,5 @@
+For KinematicSolver: 
+gcc -Wall -o “Kinematic Equation Solver.exe” KinematicSolver.c KinematicEquations.o
+
+For KinematicEquations.c
+gcc -Wall -c KinematicEquations.c
