@@ -10,4 +10,4 @@ http://www.physicsclassroom.com/Physics-Tutorial/1-D-Kinematics
 The main purpose behind this project to is apply the fundamental programming concepts and skills to the complex nature of kinematics. These concepts and skills include: using functions, headers, external C libraries, control statements, pointers, handling user input, and exception handling due to physics. (example: the time cannot be negative)
 
 ## Installation:
-To use the Kinematic Equation Solver please download and run the "Kinematic Equation Solver.exe" file. Please note your anti-virus may need to be disabled in order for the program to function properly. 
+To use the Kinematic Equation Solver please download and run the "Kinematic Equation Solver.exe" file in the releases tab. Please note your anti-virus may need to be disabled in order for the program to function properly. 
