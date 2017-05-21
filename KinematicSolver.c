@@ -1,6 +1,6 @@
 //***********************************************************
 //* KinematicSolver.c Created By Kian Gorgichuk             *
-//* Copyright (c) 2015 Kian Gorgichuk. All rights reserved. *
+//* Copyright (c) 2017 Kian Gorgichuk. All rights reserved. *
 //***********************************************************
 
 #include <stdio.h>
