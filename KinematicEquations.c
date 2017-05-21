@@ -216,7 +216,6 @@ double DTAVi(double D, double A, double T, double Vi, int solveValue)
 	return answer;
 }
 
-
 double correctSqrt(double value) {
 	value = sqrt(value);
 	double answer;
@@ -225,12 +224,12 @@ double correctSqrt(double value) {
 	printf("Answer 1 = %f and Answer 2 = %f \n", value, value * -1);
 	printf("Please Select The Correct Answer: (1/2): ");
 	fgets(s, CHARACTER_LIMIT, stdin);
-	strcpy(s, remNewLineChars(s));
+	remNewLineChars(s);
 	while(!validValue(s))
 	{
 		printf("Please Select The Correct Answer: (1/2): ");
 		fgets(s, CHARACTER_LIMIT, stdin);
-		strcpy(s, remNewLineChars(s));
+		remNewLineChars(s);
 	}
 	printf("\n");
 	if(strcmp(s, "1") == 0)
@@ -241,8 +240,8 @@ double correctSqrt(double value) {
 	{
 		answer = value * -1;
 	}
-	return answer;
 	
+	return answer;	
 }
 
 double quadEquation(double a, double b, double c)
@@ -252,8 +251,9 @@ double quadEquation(double a, double b, double c)
 	double root2 = ( (-1 * b) - sqrt( (b * b) - (4 * a * c))) / (2 * a);
 	
 	//If roots are equal
-	if(root1 == root2)
+	if(root1 == root2){
 		return root1;
+	}		
 	//Both roots are greater than zero
 	else if (root1 >= 0 && root2 >= 0)
 	{
@@ -262,11 +262,11 @@ double quadEquation(double a, double b, double c)
 		printf("Root 1 = %f and Root 2 = %f \n", root1, root2);
 		printf("Please Select The Correct Root (1/2): ");
 		fgets(s, CHARACTER_LIMIT, stdin);
-		strcpy(s, remNewLineChars(s));
+		remNewLineChars(s);
 		while(!validValue(s))
 		{
 			printf("Please Select The Correct Root (1/2): ");
-			strcpy(s, remNewLineChars(s));
+			remNewLineChars(s);
 		}
 		
 		if(strcmp(s, "1") == 0)
@@ -295,31 +295,33 @@ double quadEquation(double a, double b, double c)
 //Determines if selected number is valid (either 1 or 2)
 bool validValue(char* str)
 {
-	if(strcmp(str, "1") == 0)
+	if(strcmp(str, "1") == 0){
 		return true;
-	if(strcmp(str, "2") == 0)
+	}
+		
+	if(strcmp(str, "2") == 0){
 		return true;
+	}
+	
 	return false;
 }
 
 //Remove newline character from input string
 char* remNewLineChars(char* str)
 {
-	char* newStr = (char*)malloc(sizeof(str));
 	int len = strlen(str);
-	int j = 0;
-	int i = 0;
-	while(i < len)
-	{
-		if(str[i] != '\n')
-		{
-			newStr[j] = str[i];
-			j++;
+	int i;
+	for(i = 0; i < len; i++){
+		if(str[i] == '\n'){
+			break;
 		}
-		i++;
 	}
-	newStr[j] = '\0';
-	return newStr;
+	
+	if(i != len){
+		str[i] = '\0';
+	}
+	
+	return str;
 }
 
 void checkInsideRadical(double value)

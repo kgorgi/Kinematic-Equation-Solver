@@ -23,8 +23,7 @@ int main()
 	//Loop back program in order to due multiple calculations
 	bool exitProgram = false;
 	do 
-	{
-		
+	{	
 		char userValues[5][CHARACTER_LIMIT];
 		
 		//Ask Values From User
@@ -32,6 +31,7 @@ int main()
 		printf("**********************************************\n");
 		printf("* Welcome to the Kinematic Equation Solver!  *\n");
 		printf("*         Created By Kian Gorgichuk          *\n");
+		printf("*               Version 2.0.1                *\n");
 		printf("**********************************************\n\n");
 		
 		printf("Please enter the values below. Up to %d digits is allowed.\n", CHARACTER_LIMIT - 1);
@@ -127,12 +127,10 @@ int main()
 						break;
 				}
 			}
-			value = NULL;
 		}
 			
 		// Pass the variables into the function that does not contain the blank variable
 		// Ex: Function ATViVf contains the variables: acceleration, time, final velocity, initial velocity
-
 		switch(blankValue) 
 		{
 			case 0: 
@@ -161,13 +159,13 @@ int main()
 		
 		char s[CHARACTER_LIMIT / 2];
 		fgets(s, CHARACTER_LIMIT / 2, stdin);
-		strcpy(s, remNewLineChars(s));
+		remNewLineChars(s);
 		
 		while(!validAnswer(s))
 		{
 			printf("Would you like to print the answer in Scientific Notation? (Y/N): ");
 			fgets(s, CHARACTER_LIMIT / 2, stdin);
-			strcpy(s, remNewLineChars(s));
+			remNewLineChars(s);
 		}
 		if( (s[0] == 'Y') || (s[0] == 'y') ){
 			useScientif = true;
@@ -184,39 +182,39 @@ int main()
 		{
 			case 0:
 				if (useScientif){
-					printf("The displacement is: %e meters\n", answer);
+					printf("The displacement is: %e meters.\n", answer);
 				} else{
-					printf("The displacement is: %f meters\n", answer);
+					printf("The displacement is: %f meters.\n", answer);
 				}					
 				break;
 			case 1:
 				if (useScientif){
-					printf("The time is: %e seconds\n", answer);
+					printf("The time is: %e seconds.\n", answer);
 				}
 				else{ 
-					printf("The time is: %f seconds\n", answer);
+					printf("The time is: %f seconds.\n", answer);
 				}
 				break;
 			case 2:
 				if (useScientif){
-					printf("The acceleration is: %e meters per second squared\n", answer);
+					printf("The acceleration is: %e meters per second squared.\n", answer);
 				}else {
-					printf("The acceleration is: %f meters per second squared\n", answer);
+					printf("The acceleration is: %f meters per second squared.\n", answer);
 				}
 				break;
 			case 3:
 				if (useScientif){
-					printf("The initial velocity is: %e meters per second\n", answer);
+					printf("The initial velocity is: %e meters per second.\n", answer);
 				}else {
-					printf("The initial velocity is: %f meters per second\n", answer);
+					printf("The initial velocity is: %f meters per second.\n", answer);
 				}			
 				break;
 			case 4:
 				if (useScientif){
-					printf("The final velocity is: %e meters per second\n", answer);
+					printf("The final velocity is: %e meters per second.\n", answer);
 				}		
 				else {
-					printf("The final velocity is: %f  meters per second\n", answer);
+					printf("The final velocity is: %f  meters per second.\n", answer);
 				}					
 				break;
 			default:
@@ -229,13 +227,13 @@ int main()
 		
 		char exitS[CHARACTER_LIMIT / 2];
 		fgets(exitS, CHARACTER_LIMIT / 2, stdin);
-		strcpy(exitS, remNewLineChars(exitS));
+		remNewLineChars(exitS);
 		
 		while(!validAnswer(exitS))
 		{
 			printf("Would you like to do another calculation? (Y/N): ");
 			fgets(exitS, CHARACTER_LIMIT / 2, stdin);
-			strcpy(exitS, remNewLineChars(exitS));
+			remNewLineChars(exitS);
 		}
 		if( (exitS[0] == 'Y') || (exitS[0] == 'y') )
 		{
@@ -250,6 +248,7 @@ int main()
 		printf("\n");
 	
 	} while (!exitProgram);
+	printf("Exiting...Goodbye!\n");
 	
 	return EXIT_SUCCESS;
 }
@@ -257,13 +256,21 @@ int main()
 //Function that determines if user entered valid input in a y/n question. 
 bool validAnswer(char* str)
 {
-	if(strcmp(str, "Y") == 0)
+	if(strcmp(str, "Y") == 0){
 		return true;
-	if(strcmp(str, "y") == 0)
+	}
+		
+	if(strcmp(str, "y") == 0){
 		return true;
-	if(strcmp(str, "N") == 0)
+	}
+	
+	if(strcmp(str, "N") == 0){
 		return true;
-	if(strcmp(str, "n") == 0)
+	}
+	
+	if(strcmp(str, "n") == 0){
 		return true;
+	}
+		
 	return false;
 }

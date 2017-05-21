@@ -3,3 +3,12 @@ gcc -Wall -o “Kinematic Equation Solver.exe” KinematicSolver.c KinematicEqua
 
 For KinematicEquations.c
 gcc -Wall -c KinematicEquations.c
+
+Memory Debugging:
+drmemory -- "Kinematic Equation Solver.exe"
+
+For KinematicSolver: 
+gcc -Wall -g -o “Kinematic Equation Solver.exe” KinematicSolver.c KinematicEquations.o
+
+For KinematicEquations.c
+gcc -Wall -g -c KinematicEquations.c
