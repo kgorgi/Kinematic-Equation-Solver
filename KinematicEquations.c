@@ -16,9 +16,13 @@
 //Computational Support Functions:
 double quadEquation(double a, double b, double c);
 double correctSqrt(double value);
+
 //These functions check if user input is valid:
 bool validValue(char* str);
 void checkInsideRadical(double value);
+
+// Note that the below functions do not check if the parameter t <= 0, as this 
+// is an impossible physics scenario (must be checked by calling code).
 
 double TAViVf(double A, double T, double Vi, double Vf, int solveValue)
 {

@@ -32,7 +32,6 @@ int main()
 		printf("**********************************************\n");
 		printf("* Welcome to the Kinematic Equation Solver!  *\n");
 		printf("*         Created By Kian Gorgichuk          *\n");
-		printf("*               Version 2.0.0                *\n");
 		printf("**********************************************\n\n");
 		
 		printf("Please enter the values below. Up to %d digits is allowed.\n", CHARACTER_LIMIT - 1);
@@ -88,8 +87,9 @@ int main()
 					solveValue = i;
 					solveSelected = true;	
 				} 
-				else 
+				else {
 					exceptionHandling("Multiple Variables Selected to Solve!");
+				}
 			}
 			else if(value[0] == '\0') //Blank Value
 			{
@@ -98,8 +98,9 @@ int main()
 					blankValue = i;
 					blankSelected = true;
 				}
-				else
+				else{
 					exceptionHandling("Too Many Variables Left Blank!");
+				}
 			}
 			else //Valid Value
 			{
@@ -168,10 +169,13 @@ int main()
 			fgets(s, CHARACTER_LIMIT / 2, stdin);
 			strcpy(s, remNewLineChars(s));
 		}
-		if( (s[0] == 'Y') || (s[0] == 'y') )
+		if( (s[0] == 'Y') || (s[0] == 'y') ){
 			useScientif = true;
-		else 
+		}
+			
+		else {
 			useScientif = false;
+		}
 		
 		printf("\n");
 		
@@ -179,34 +183,41 @@ int main()
 		switch(solveValue)
 		{
 			case 0:
-				if (useScientif)
+				if (useScientif){
 					printf("The displacement is: %e meters\n", answer);
-				else 
+				} else{
 					printf("The displacement is: %f meters\n", answer);
+				}					
 				break;
 			case 1:
-				if (useScientif)
+				if (useScientif){
 					printf("The time is: %e seconds\n", answer);
-				else 
+				}
+				else{ 
 					printf("The time is: %f seconds\n", answer);
+				}
 				break;
 			case 2:
-				if (useScientif)
+				if (useScientif){
 					printf("The acceleration is: %e meters per second squared\n", answer);
-				else 
+				}else {
 					printf("The acceleration is: %f meters per second squared\n", answer);
+				}
 				break;
 			case 3:
-				if (useScientif)
+				if (useScientif){
 					printf("The initial velocity is: %e meters per second\n", answer);
-				else 
+				}else {
 					printf("The initial velocity is: %f meters per second\n", answer);
+				}			
 				break;
 			case 4:
-				if (useScientif)
+				if (useScientif){
 					printf("The final velocity is: %e meters per second\n", answer);
-				else 
+				}		
+				else {
 					printf("The final velocity is: %f  meters per second\n", answer);
+				}					
 				break;
 			default:
 				exceptionHandling("Did Not Select A Value to Solve!");
@@ -233,8 +244,9 @@ int main()
 			solveSelected = false; 
 			blankSelected = false;
 		}
-		else 
+		else{
 			exitProgram = true;
+		}
 		printf("\n");
 	
 	} while (!exitProgram);
