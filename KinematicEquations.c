@@ -27,10 +27,16 @@ double TAViVf(double A, double T, double Vi, double Vf, int solveValue)
 	{
 		case 1:
 			if(A == 0){
-				char *msg = "Invalid Physics Scenario (Divide By Zero) Acceleration Cannot Equal Zero.";
+				char *msg = "Invalid Physics Scenario (Divide By Zero) Acceleration Cannot Equal Zero!";
 				exceptionHandling(msg);
 			}
+			
 			answer = (Vf - Vi) / A;
+			
+			if(answer <= 0){
+				char *msg = "Invalid Physics Scenario Time Cannot Be Less Than or Equal to Zero!";
+				exceptionHandling(msg);
+			}
 			break;
 		case 2:
 			answer = (Vf - Vi) / T;
@@ -57,10 +63,16 @@ double DTViVf(double D, double T, double Vi, double Vf, int solveValue)
 			break;
 		case 1:
 			if(Vi + Vf == 0){
-				char *msg = "Invalid Physics Scenario (Divide By Zero)\n Initial Velocity + Final Velocity Cannot Equal Zero";
+				char *msg = "Invalid Physics Scenario (Divide By Zero)\n Initial Velocity + Final Velocity Cannot Equal Zero!";
 				exceptionHandling(msg);
 			}
+			
 			answer = (2 * D) / (Vi + Vf);
+			
+			if(answer <= 0){
+				char *msg = "Invalid Physics Scenario Time Cannot Be Less Than or Equal to Zero!";
+				exceptionHandling(msg);
+			}
 			break;
 		case 3: 
 			answer = ( (2 * D) / T) - Vf;
@@ -82,14 +94,14 @@ double DAViVf(double D, double A, double Vi, double Vf, int solveValue)
 	{
 		case 0:
 			if(A == 0){
-				char *msg = "Invalid Physics Scenario (Divide By Zero): Acceleration Cannot Equal Zero.";
+				char *msg = "Invalid Physics Scenario (Divide By Zero): Acceleration Cannot Equal Zero!";
 				exceptionHandling(msg);
 			}
 			answer = ( (Vf * Vf) - (Vi * Vi) ) / ( 2 * A );
 			break;
 		case 2: 
 			if(D == 0){
-				char *msg = "Invalid Physics Scenario (Divide By Zero): Displacemnt Cannot Equal Zero.";
+				char *msg = "Invalid Physics Scenario Time Cannot Be Less Than or Equal to Zero!";
 				exceptionHandling(msg);
 			}
 			answer = ( (Vf * Vf) - (Vi * Vi) ) / ( 2 * D );
@@ -123,7 +135,7 @@ double DTAVf(double D, double A, double T, double Vf, int solveValue)
 			if(A == 0) 
 			{
 				if(Vf == 0){
-					char *msg = "Invalid Physics Scenario (Divide By Zero): Final Velocity Cannot Equal Zero.";
+					char *msg = "Invalid Physics Scenario (Divide By Zero): Final Velocity Cannot Equal Zero!";
 					exceptionHandling(msg);
 				}
 				answer = fabs(D / Vf);
@@ -136,6 +148,11 @@ double DTAVf(double D, double A, double T, double Vf, int solveValue)
 				c = D;
 		
 				answer = quadEquation(a,b,c);
+			}
+			
+			if(answer <= 0){
+				char *msg = "Invalid Physics Scenario Time Cannot Be Less Than or Equal to Zero!";
+				exceptionHandling(msg);
 			}
 			break;
 		case 2:
@@ -163,7 +180,7 @@ double DTAVi(double D, double A, double T, double Vi, int solveValue)
 			if(A == 0)
 			{
 				if(Vi == 0){
-					char *msg = "Invalid Physics Scenario (Divide By Zero): Initial Velocity Cannot Equal Zero.";
+					char *msg = "Invalid Physics Scenario (Divide By Zero): Initial Velocity Cannot Equal Zero!";
 					exceptionHandling(msg);
 				}
 				answer = fabs(D / Vi);
@@ -176,6 +193,11 @@ double DTAVi(double D, double A, double T, double Vi, int solveValue)
 				c = (-1 * D);
 
 				answer = quadEquation(a,b,c);
+			}
+			
+			if(answer <= 0){
+				char *msg = "Invalid Physics Scenario Time Cannot Be Less Than or Equal to Zero!";
+				exceptionHandling(msg);
 			}
 			break;
 		case 2:
