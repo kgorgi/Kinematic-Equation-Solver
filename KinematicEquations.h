@@ -21,4 +21,6 @@ double DTAVi(double D, double A, double T, double Vi, int solveValue);
 //Function removes new line (\n) characters from a string
 char* remNewLineChars(char* str);
 
+void exceptionHandling(char* message);
+
 #endif

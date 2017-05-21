@@ -12,7 +12,6 @@
 
 #define CHARACTER_LIMIT (101)
 
-void exceptionHandling(char * message); 
 bool validAnswer(char* str);
 char* remNewLineChars(char* str);
 
@@ -241,15 +240,6 @@ int main()
 	} while (!exitProgram);
 	
 	return EXIT_SUCCESS;
-}
-
-//Function that displays exception message and exits program 
-void exceptionHandling(char* message) 
-{	
-	printf("ERROR: %s \n", message);
-	printf("Press Enter To Exit Program. ");
-	getchar();
-	exit(EXIT_FAILURE);
 }
  
 //Function that determines if user entered valid input in a y/n question. 

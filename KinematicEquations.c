@@ -26,6 +26,10 @@ double TAViVf(double A, double T, double Vi, double Vf, int solveValue)
 	switch (solveValue) 
 	{
 		case 1:
+			if(A == 0){
+				char *msg = "Invalid Physics Scenario (Divide By Zero) Acceleration Cannot Equal Zero.";
+				exceptionHandling(msg);
+			}
 			answer = (Vf - Vi) / A;
 			break;
 		case 2:
@@ -52,6 +56,10 @@ double DTViVf(double D, double T, double Vi, double Vf, int solveValue)
 			answer = ( (Vi + Vf) / 2 ) * T ;
 			break;
 		case 1:
+			if(Vi + Vf == 0){
+				char *msg = "Invalid Physics Scenario (Divide By Zero)\n Initial Velocity + Final Velocity Cannot Equal Zero";
+				exceptionHandling(msg);
+			}
 			answer = (2 * D) / (Vi + Vf);
 			break;
 		case 3: 
@@ -73,9 +81,17 @@ double DAViVf(double D, double A, double Vi, double Vf, int solveValue)
 	switch(solveValue)
 	{
 		case 0:
+			if(A == 0){
+				char *msg = "Invalid Physics Scenario (Divide By Zero): Acceleration Cannot Equal Zero.";
+				exceptionHandling(msg);
+			}
 			answer = ( (Vf * Vf) - (Vi * Vi) ) / ( 2 * A );
 			break;
 		case 2: 
+			if(D == 0){
+				char *msg = "Invalid Physics Scenario (Divide By Zero): Displacemnt Cannot Equal Zero.";
+				exceptionHandling(msg);
+			}
 			answer = ( (Vf * Vf) - (Vi * Vi) ) / ( 2 * D );
 			break;
 		case 3:
@@ -106,6 +122,10 @@ double DTAVf(double D, double A, double T, double Vf, int solveValue)
 		case 1:
 			if(A == 0) 
 			{
+				if(Vf == 0){
+					char *msg = "Invalid Physics Scenario (Divide By Zero): Final Velocity Cannot Equal Zero.";
+					exceptionHandling(msg);
+				}
 				answer = fabs(D / Vf);
 			}
 			else 
@@ -142,6 +162,10 @@ double DTAVi(double D, double A, double T, double Vi, int solveValue)
 		case 1:
 			if(A == 0)
 			{
+				if(Vi == 0){
+					char *msg = "Invalid Physics Scenario (Divide By Zero): Initial Velocity Cannot Equal Zero.";
+					exceptionHandling(msg);
+				}
 				answer = fabs(D / Vi);
 			}
 			else
@@ -281,4 +305,13 @@ void checkInsideRadical(double value)
 		getchar();
 		exit(EXIT_FAILURE);
 	}
+}
+
+//Function that displays exception message and exits program 
+void exceptionHandling(char* message) 
+{	
+	printf("ERROR: %s \n", message);
+	printf("Press Enter To Exit Program. ");
+	getchar();
+	exit(EXIT_FAILURE);
 }
